@@ -1,9 +1,19 @@
-IDFP site
+IDFP — نسخه نهایی استاتیک
 
-Root page: /home-site-org.html
-Pretty URLs:
-/post/eelam/
-/maramname/
+این بسته برای GitHub Pages آماده شده است.
 
-The root index.html is intentionally only a tiny entry point because GitHub Pages requires index.html at the root.
-The visual system uses the Apple/iPhone system font stack; on iPhone/iOS this resolves to the native SF Pro family. No external font or third-party JavaScript is used.
+ساختار:
+- index.html = صفحه اصلی واقعی
+- post/eelam/ = بیانیه اعلام موجودیت
+- post/mahsa-1401/ = بیانیه ۲۶ شهریور ۱۴۰۱
+- maramname/ = مرامنامه
+- header-site-org.jpg
+- eelam-site-banner-1401.jpg
+- mahsa-site-banner-1401.jpg
+
+هیچ پوشه assets وجود ندارد و فایل‌های تصویری در ریشه پروژه هستند.
+هیچ لینک داخلی با / ابتدای مسیر استفاده نشده است؛ این موضوع برای GitHub Pages پروژه‌ای مهم است.
+فونت از stack سیستمی Apple استفاده می‌کند و روی iPhone/iOS به فونت سیستمی SF Pro نزدیک می‌شود؛ فایل فونت خارجی یا سرویس ثالث استفاده نشده است.
+.nojekyll برای جلوگیری از پردازش Jekyll اضافه شده است.
+
+مسیرهای داخلی با لینک‌های نسبی ساخته شده‌اند تا هم در GitHub Pages پروژه‌ای و هم روی دامنه مستقل کار کنند.
