@@ -1,7 +1,7 @@
 حزب توسعه و آزادی ایران — بسته وب‌سایت استاتیک
 
 فایل اصلی عمداً index.html نام‌گذاری نشده است:
-index-site-org.html
+home-site-org.html
 
 مطلب اول و لینک مستقیم:
 p-idfp-1401-001-site-org.html
@@ -14,4 +14,4 @@ https://idfp.workers.dev/
 
 اگر سایت با Cloudflare Pages منتشر شود، فایل _headers برای هدرهای امنیتی آماده است.
 
-اگر از Cloudflare Worker + Assets استفاده شود، Worker باید مسیر / را به index-site-org.html نگاشت کند. فایل‌های استاتیک بدون index.html به‌صورت خودکار در ریشه دامنه نمایش داده نمی‌شوند.
+اگر از Cloudflare Worker + Assets استفاده شود، Worker باید مسیر / را به home-site-org.html نگاشت کند. فایل‌های استاتیک بدون index.html به‌صورت خودکار در ریشه دامنه نمایش داده نمی‌شوند.
