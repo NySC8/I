@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://idfp.workers.dev/sitemap.xml

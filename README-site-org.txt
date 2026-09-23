@@ -1,17 +1,9 @@
-حزب توسعه و آزادی ایران — بسته وب‌سایت استاتیک
+IDFP site
 
-فایل اصلی عمداً index.html نام‌گذاری نشده است:
-home-site-org.html
+Root page: /home-site-org.html
+Pretty URLs:
+/post/eelam/
+/maramname/
 
-مطلب اول و لینک مستقیم:
-p-idfp-1401-001-site-org.html
-
-برای دامنه هدف:
-https://idfp.workers.dev/
-
-نکته مهم:
-نام پیچیده فایل‌ها «امنیت» واقعی ایجاد نمی‌کند؛ امنیت اصلی این بسته با CSP، عدم استفاده از اسکریپت شخص ثالث، نبود فرم سمت سرور و هدرهای امنیتی انجام شده است.
-
-اگر سایت با Cloudflare Pages منتشر شود، فایل _headers برای هدرهای امنیتی آماده است.
-
-اگر از Cloudflare Worker + Assets استفاده شود، Worker باید مسیر / را به home-site-org.html نگاشت کند. فایل‌های استاتیک بدون index.html به‌صورت خودکار در ریشه دامنه نمایش داده نمی‌شوند.
+The root index.html is intentionally only a tiny entry point because GitHub Pages requires index.html at the root.
+The visual system uses the Apple/iPhone system font stack; on iPhone/iOS this resolves to the native SF Pro family. No external font or third-party JavaScript is used.
