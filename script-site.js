@@ -64,6 +64,65 @@
     }
   });
 
+
+
+  // RTL news slider: supports arrows, dots, touch/trackpad scrolling and autoplay.
+  const slider = document.querySelector('[data-news-slider]');
+  const slides = slider ? Array.from(slider.querySelectorAll('.news-slide')) : [];
+  const dots = Array.from(document.querySelectorAll('[data-slide-to]'));
+  const prevButton = document.querySelector('[data-slider-prev]');
+  const nextButton = document.querySelector('[data-slider-next]');
+  const progress = document.querySelector('[data-slider-progress]');
+  let activeIndex = 0;
+  let autoplay;
+
+  function setActive(index, smooth = true) {
+    if (!slider || !slides.length) return;
+    activeIndex = Math.max(0, Math.min(index, slides.length - 1));
+    const target = slides[activeIndex];
+    target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'nearest', inline: 'start' });
+    dots.forEach((dot, i) => {
+      const active = i === activeIndex;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-selected', String(active));
+    });
+    if (progress) progress.style.transform = `translateX(${activeIndex ? '100%' : '0'})`;
+  }
+
+  function next() { setActive((activeIndex + 1) % slides.length); }
+  function prev() { setActive((activeIndex - 1 + slides.length) % slides.length); }
+
+  nextButton?.addEventListener('click', next);
+  prevButton?.addEventListener('click', prev);
+  dots.forEach(dot => dot.addEventListener('click', () => setActive(Number(dot.dataset.slideTo))));
+
+  if (slider && slides.length > 1) {
+    let scrollTimer;
+    slider.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const edge = slider.getBoundingClientRect().right;
+        const distances = slides.map((slide, i) => ({ i, d: Math.abs(slide.getBoundingClientRect().right - edge) }));
+        const nearest = distances.sort((a,b) => a.d - b.d)[0]?.i ?? 0;
+        if (nearest !== activeIndex) setActive(nearest, false);
+      }, 80);
+    }, { passive: true });
+
+    const startAutoplay = () => {
+      clearInterval(autoplay);
+      autoplay = setInterval(next, 6500);
+    };
+    const stopAutoplay = () => clearInterval(autoplay);
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
+    slider.addEventListener('focusin', stopAutoplay);
+    slider.addEventListener('focusout', startAutoplay);
+    slider.addEventListener('touchstart', stopAutoplay, { passive: true });
+    slider.addEventListener('touchend', startAutoplay, { passive: true });
+    startAutoplay();
+    setActive(0, false);
+  }
+
   const revealItems = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const observer = new IntersectionObserver((entries, obs) => {

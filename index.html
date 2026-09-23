@@ -32,54 +32,75 @@
     <p>انتشار اسناد و مطالب رسمی حزب توسعه و آزادی ایران به ترتیب زمانی.</p>
   </section>
 
-  <section class="timeline" aria-label="آرشیو زمانی مطالب">
-    <article class="timeline-item reveal">
-      <span class="timeline-node" aria-hidden="true"></span>
-      <div class="timeline-card">
-        <a class="timeline-media" href="post/eelam/">
+  <section class="news-section reveal" aria-label="مطالب و بیانیه‌ها">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">آرشیو مطالب</span>
+        <h2>آخرین بیانیه‌ها</h2>
+      </div>
+      <div class="slider-controls" aria-label="کنترل مطالب">
+        <button class="slider-arrow" type="button" data-slider-prev aria-label="مطلب قبلی" title="مطلب قبلی">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"></path></svg>
+        </button>
+        <button class="slider-arrow" type="button" data-slider-next aria-label="مطلب بعدی" title="مطلب بعدی">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="news-slider" data-news-slider tabindex="0">
+      <article class="news-slide" data-slide-index="0">
+        <a class="news-media" href="post/eelam/">
           <img src="eelam-site-banner-1401.jpg" alt="بنر اعلام موجودیت حزب توسعه و آزادی ایران" loading="eager">
+          <span class="media-date">۱۴ شهریور ۱۴۰۱</span>
         </a>
-        <div class="timeline-content">
+        <div class="news-body">
           <div class="post-kicker">بیانیه اعلام موجودیت</div>
           <h2>آغاز فعالیت حزب توسعه و آزادی ایران</h2>
-          <p class="summary">متن اعلام موجودیت حزب و اصول اعلام‌شده در آغاز فعالیت تشکیلاتی.</p>
+          <p>متن اعلام موجودیت حزب و اصول اعلام‌شده در آغاز فعالیت تشکیلاتی.</p>
           <div class="post-dates">
             <span><strong>شمسی:</strong> ۱۴ شهریور ۱۴۰۱</span>
             <span><strong>میلادی:</strong> 5 September 2022</span>
           </div>
-          <div class="timeline-actions">
+          <div class="news-actions">
             <a class="read-link" href="post/eelam/">مشاهده مطلب <span class="arrow">←</span></a>
             <button class="icon-button" type="button" data-copy-url="post/eelam/" aria-label="کپی لینک اعلام موجودیت" title="کپی لینک">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="10" height="10" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></svg>
             </button>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="timeline-item reveal">
-      <span class="timeline-node" aria-hidden="true"></span>
-      <div class="timeline-card">
-        <a class="timeline-media" href="post/mahsa-1401/">
+      <article class="news-slide" data-slide-index="1">
+        <a class="news-media" href="post/mahsa-1401/">
           <img src="mahsa-site-banner-1401.jpg" alt="تصویر بیانیه ۲۶ شهریور ۱۴۰۱" loading="lazy">
+          <span class="media-date">۲۶ شهریور ۱۴۰۱</span>
         </a>
-        <div class="timeline-content">
-          <div class="post-kicker">بیانیه درباره درگذشت مهسا امینی</div>
+        <div class="news-body">
+          <div class="post-kicker">بیانیه ۲۶ شهریور ۱۴۰۱</div>
           <h2>درگذشت مهسا امینی و مطالبه روشن شدن حقیقت</h2>
-          <p class="summary">متن بیانیه حزب درباره درگذشت مهسا امینی در ۲۵ شهریور ۱۴۰۱ و درخواست برای روشن شدن حقیقت.</p>
+          <p>متن بیانیه حزب درباره درگذشت مهسا امینی در ۲۵ شهریور ۱۴۰۱ و درخواست برای روشن شدن حقیقت.</p>
           <div class="post-dates">
             <span><strong>شمسی:</strong> ۲۶ شهریور ۱۴۰۱</span>
             <span><strong>میلادی:</strong> 17 September 2022</span>
           </div>
-          <div class="timeline-actions">
+          <div class="news-actions">
             <a class="read-link" href="post/mahsa-1401/">مشاهده مطلب <span class="arrow">←</span></a>
             <button class="icon-button" type="button" data-copy-url="post/mahsa-1401/" aria-label="کپی لینک بیانیه مهسا" title="کپی لینک">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="10" height="10" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></svg>
             </button>
           </div>
         </div>
+      </article>
+    </div>
+
+    <div class="slider-bottom">
+      <div class="slider-track" aria-hidden="true"><span data-slider-progress></span></div>
+      <div class="slider-dots" role="tablist" aria-label="انتخاب مطلب">
+        <button type="button" class="slider-dot is-active" data-slide-to="0" role="tab" aria-label="مطلب اول" aria-selected="true"></button>
+        <button type="button" class="slider-dot" data-slide-to="1" role="tab" aria-label="مطلب دوم" aria-selected="false"></button>
       </div>
-    </article>
+    </div>
   </section>
 
   <section class="documents reveal">
