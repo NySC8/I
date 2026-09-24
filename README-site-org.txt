@@ -1,1 +1,15 @@
-IDFP 2026 final static site. Root index.html is the real homepage. No assets folder. Internal links are relative for GitHub Pages project hosting. The typography uses the native Apple system stack (-apple-system / SF Pro / SF Arabic) on Apple devices, so iPhone uses its native San Francisco typography; no external font service is required.
+IDFP 2026 — نسخه طراحی بازطراحی‌شده
+
+فونت فعال سایت: فایل‌های محلی fonts/IDFP-UI-*.ttf
+CSS فعال: style-site-2026.css
+JS فعال: script-site-2026.js
+
+فایل‌های style-site-core-v1.css / style-site-core-v2.css و script-site-engine-v1.js / script-site-engine-v2.js عمداً نگه داشته شده‌اند اما توسط صفحات جدید استفاده نمی‌شوند.
+
+صفحه اصلی: /
+بیانیه: /post/eelam/
+بیانیه مهسا: /post/mahsa-1401/
+مرامنامه: /maramname/
+
+اسلایدر صفحه اصلی خودکار روی ۵.۱۸ ثانیه تنظیم شده و بدون Timeline است.
+ترتیب اسلایدر: مطلب جدیدتر سمت راست، مطلب قدیمی‌تر سمت چپ.
