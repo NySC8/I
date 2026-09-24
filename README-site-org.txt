@@ -1,15 +1,9 @@
-IDFP 2026 — نسخه طراحی بازطراحی‌شده
+IDFP site
 
-فونت فعال سایت: فایل‌های محلی fonts/IDFP-UI-*.ttf
-CSS فعال: style-site-2026.css
-JS فعال: script-site-2026.js
+Root page: /home-site-org.html
+Pretty URLs:
+/post/eelam/
+/maramname/
 
-فایل‌های style-site-core-v1.css / style-site-core-v2.css و script-site-engine-v1.js / script-site-engine-v2.js عمداً نگه داشته شده‌اند اما توسط صفحات جدید استفاده نمی‌شوند.
-
-صفحه اصلی: /
-بیانیه: /post/eelam/
-بیانیه مهسا: /post/mahsa-1401/
-مرامنامه: /maramname/
-
-اسلایدر صفحه اصلی خودکار روی ۵.۱۸ ثانیه تنظیم شده و بدون Timeline است.
-ترتیب اسلایدر: مطلب جدیدتر سمت راست، مطلب قدیمی‌تر سمت چپ.
+The root index.html is intentionally only a tiny entry point because GitHub Pages requires index.html at the root.
+The visual system uses the Apple/iPhone system font stack; on iPhone/iOS this resolves to the native SF Pro family. No external font or third-party JavaScript is used.

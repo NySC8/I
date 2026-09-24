@@ -1,23 +1,18 @@
 (function(){
-  const toast=document.getElementById('copyToast');
-  const showToast=()=>{if(!toast)return;toast.classList.add('show');clearTimeout(window.__idfpToast);window.__idfpToast=setTimeout(()=>toast.classList.remove('show'),1700)};
-  document.querySelectorAll('[data-copy-url]').forEach(btn=>btn.addEventListener('click',async()=>{
-    const path=btn.getAttribute('data-copy-url');
-    const url=new URL(path,window.location.href).href;
-    try{await navigator.clipboard.writeText(url)}catch(e){const t=document.createElement('textarea');t.value=url;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()}
-    showToast();
-  }));
-  const track=document.querySelector('.news-track');
-  const cards=track?[...track.querySelectorAll('.news-card')]:[];
-  const next=document.querySelector('[data-next]'); const prev=document.querySelector('[data-prev]');
-  const progress=document.querySelector('.progress i'); const counter=document.querySelector('.counter');
-  let index=0,timer=null,startX=0,dragging=false;
-  const go=(i,manual=true)=>{if(!track||cards.length<2)return;index=(i+cards.length)%cards.length;track.style.transform=`translateX(${index*100}%)`;if(progress)progress.style.width=`${((index+1)/cards.length)*100}%`;if(counter)counter.textContent=`${String(index+1).padStart(2,'0')} / ${String(cards.length).padStart(2,'0')}`;if(manual)restart()};
-  const restart=()=>{clearInterval(timer);timer=setInterval(()=>go(index+1,false),5180)};
-  next?.addEventListener('click',()=>go(index+1));prev?.addEventListener('click',()=>go(index-1));
-  track?.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;dragging=true;clearInterval(timer)},{passive:true});
-  track?.addEventListener('touchend',e=>{if(!dragging)return;const dx=e.changedTouches[0].clientX-startX;dragging=false;if(Math.abs(dx)>45)go(index+(dx>0?-1:1));else restart()},{passive:true});
-  if(track&&cards.length){track.style.transform='translateX(0%)';if(progress)progress.style.width=`${100/cards.length}%`;if(counter)counter.textContent=`01 / ${String(cards.length).padStart(2,'0')}`;restart();}
-  const observer='IntersectionObserver' in window?new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.12}):null;
-  document.querySelectorAll('.reveal').forEach(el=>observer?observer.observe(el):el.classList.add('visible'));
+  const track=document.getElementById('newsTrack');
+  if(track){
+    const cards=[...track.querySelectorAll('.news-card')];
+    const next=document.getElementById('nextNews'),prev=document.getElementById('prevNews');
+    const dots=[...document.querySelectorAll('#newsDots button')];
+    const fill=document.getElementById('newsTimerFill');
+    let index=0, timer=null, start=0, duration=5180;
+    function go(i){index=(i+cards.length)%cards.length;cards[index].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});dots.forEach((d,n)=>d.classList.toggle('active',n===index));start=performance.now();}
+    function restart(){clearInterval(timer);start=performance.now();timer=setInterval(()=>go(index+1),duration)}
+    next?.addEventListener('click',()=>{go(index+1);restart()});prev?.addEventListener('click',()=>{go(index-1);restart()});dots.forEach((d,n)=>d.addEventListener('click',()=>{go(n);restart()}));
+    track.addEventListener('scroll',()=>{let best=Infinity,b=0;cards.forEach((c,i)=>{const r=c.getBoundingClientRect(),tr=track.getBoundingClientRect();const d=Math.abs((r.left+r.width/2)-(tr.left+tr.width/2));if(d<best){best=d;b=i}});index=b;dots.forEach((d,n)=>d.classList.toggle('active',n===index));},{passive:true});
+    track.addEventListener('pointerdown',()=>clearInterval(timer));track.addEventListener('pointerup',restart);track.addEventListener('pointercancel',restart);
+    function animate(t){if(fill){const p=Math.min(1,(t-start)/duration);fill.style.width=(p*100)+'%';}requestAnimationFrame(animate)}
+    requestAnimationFrame(animate);restart();
+  }
+  document.querySelectorAll('[data-copy-url]').forEach(btn=>btn.addEventListener('click',async()=>{let u=btn.getAttribute('data-copy-url');u=new URL(u,location.href).href;try{await navigator.clipboard.writeText(u)}catch(e){const t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()}const toast=document.getElementById('copyToast');if(toast){toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1500)}}));
 })();
