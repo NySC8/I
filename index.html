@@ -21,13 +21,16 @@
 <nav class="main-nav" aria-label="ناوبری اصلی">
   <div class="nav-inner">
     <a class="active" href="./">خانه</a>
-    <a href="post/eelam/">بیانیه‌ها</a>
     <a href="maramname/">مرامنامه</a>
   </div>
 </nav>
 <main>
 <section class="news-section container" aria-labelledby="news-title">
-  <div class="section-head"><h1 id="news-title">آخرین مطالب</h1><span class="section-count">۰۲ مطلب</span></div>
+  <div class="section-head"><h1 id="news-title">آخرین مطالب</h1><button class="news-menu-button" id="newsMenuButton" type="button" aria-label="نمایش همه اخبار" aria-expanded="false" aria-controls="newsMenu"><span></span><span></span><span></span></button></div>
+  <div class="news-menu" id="newsMenu" hidden>
+    <a href="post/mahsa-1401/"><span>مهسا امینی</span><small>17 September 2022</small></a>
+    <a href="post/eelam/"><span>اعلام موجودیت حزب توسعه و آزادی ایران</span><small>5 September 2022</small></a>
+  </div>
   <div class="news-carousel-wrap">
     <button class="carousel-arrow prev" id="prevNews" type="button" aria-label="مطلب قبلی">‹</button>
     <div class="news-track" id="newsTrack" tabindex="0">
